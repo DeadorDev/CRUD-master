@@ -5,16 +5,14 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[0];
+        return null;
     }
 
-    //Указание файла конфигурации
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class[]{SpringConfig.class};
     }
 
-    //Всё запросы идут на DispatcherServlet
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
