@@ -14,7 +14,6 @@ public class FirstController {
     public String helloPage(@RequestParam(value = "name", required = false) String name,
                             @RequestParam(value = "surname", required = false) String surname,
                             Model model) {
-
         model.addAttribute("message", "Hello " + name + " " + surname);
         return "first/hello";
     }
@@ -24,6 +23,7 @@ public class FirstController {
         return "first/goodbye";
     }
 
+    //Controller Calculator
     @GetMapping("/calculator")
     public String calculator(@RequestParam(value = "number_1", required = false) int number_1,
                              @RequestParam(value = "number_2", required = false) int number_2,
