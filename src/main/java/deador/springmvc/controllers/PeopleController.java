@@ -22,7 +22,7 @@ public class PeopleController {
     }
 
     //----------------------------------------------------------------
-    //Get default page with all people
+    //--- GET default page with all people ---
     @GetMapping()
     public String index(Model model) {
         // Получим всех людей из DAO и передадим на отображение в представление
@@ -30,7 +30,7 @@ public class PeopleController {
         return "people/index";
     }
 
-    //Get a page with one person per id
+    //--- GET a page with one person per id ---
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
         // Получим одного человека по id из DAO и передадим на отображение в представление
@@ -39,7 +39,7 @@ public class PeopleController {
     }
 
     //----------------------------------------------------------------
-    //Get a creation page
+    //--- GET a creation page ---
     @GetMapping("/new")
     public String newPerson(@ModelAttribute("person") Person person) {
         return "people/new";
@@ -56,7 +56,7 @@ public class PeopleController {
     }
 
     //----------------------------------------------------------------
-    //Get a edit page
+    //--- GET A EDIT PAGE ---
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("person", personDAO.show(id));
@@ -75,11 +75,10 @@ public class PeopleController {
     }
 
     //----------------------------------------------------------------
-    //Delete a person
+    //--- DELETE A PERSON
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
         personDAO.delete(id);
         return "redirect:/people";
     }
-    //new test
 }
